@@ -10,19 +10,22 @@
     </nav>
   </header>
   <main>
-    <RobotBuilder />
-<!--    <HomePage msg="Welcome to Your Vue.js App"/>-->
+    <!--    <RobotBuilder/>-->
+    <ProductSearch/>
+    <!--    <HomePage msg="Welcome to Your Vue.js App"/>-->
   </main>
 </template>
 
 <script>
-import RobotBuilder from './build/RobotBuilder.vue';
+// import RobotBuilder from './build/RobotBuilder.vue';
+import ProductSearch from './search/ProductSearch.vue';
 // import HomePage from './HomePage.vue';
 
 export default {
   name: 'App',
   components: {
-    RobotBuilder,
+    // RobotBuilder,
+    ProductSearch,
     // HomePage,
   },
 };
@@ -49,7 +52,7 @@ main {
 
 header {
   background-color: #999;
-  width:1460px;
+  width: 1460px;
   margin: 0 auto;
 }
 
@@ -59,7 +62,7 @@ ul {
 }
 
 .nav-item {
-  display:inline-block;
+  display: inline-block;
   padding: 5px 10px;
   font-size: 22px;
   border-right: 1px solid #bbb;

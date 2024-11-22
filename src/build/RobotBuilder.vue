@@ -59,7 +59,7 @@
 
 <script setup>
 import { toCurrency } from '@/shared/formatters';
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import parts from '../data/parts';
 
 function getNextValidIndex(index, length) {
@@ -78,7 +78,9 @@ const selectedLeftArmIndex = ref(0);
 const selectedRightArmIndex = ref(0);
 const selectedTorsoIndex = ref(0);
 const selectedBaseIndex = ref(0);
-let cart = [];
+const cart = ref([]);
+
+onMounted(() => console.log('RobotBuilder mounted'));
 
 const selectedRobot = computed(() => ({
   head: availableParts.heads[selectedHeadIndex.value],
@@ -151,25 +153,25 @@ const selectPreviousBase = () => {
 };
 // #endregion
 const addToCart = () => {
-  const robot = selectedRobot;
+  const robot = selectedRobot.value;
   const cost = robot.head.cost +
     robot.leftArm.cost +
     robot.rightArm.cost +
     robot.torso.cost +
     robot.base.cost;
   // the code below this is the same, but creates a new one it is better.
-  // cart.push({
-  //   ...robot,
-  //   cost,
-  // });
-  cart = [
-    ...cart,
-    {
-      ...robot,
-      cost,
-    },
-  ];
-  console.log(cart.length);
+  cart.value.push({
+    ...robot,
+    cost,
+  });
+  // cart = [
+  //   ...cart,
+  //   {
+  //     ...robot,
+  //     cost,
+  //   },
+  // ];
+  console.log(cart.value.length);
 };
 </script>
 
