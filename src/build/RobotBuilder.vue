@@ -2,7 +2,7 @@
   <div class="content">
     <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     <div class="top-row">
-      <div class="top part">
+      <div class="top part" :style="headBorderStyle">
         <div class="robot-name">
           {{ selectedRobot.head.title }}
           <span class="sale" v-if="selectedRobot.head.onSale">On Sale!</span>
@@ -90,6 +90,10 @@ const selectedRobot = computed(() => ({
   base: availableParts.bases[selectedBaseIndex.value],
 }));
 
+const headBorderStyle = computed(() => ({
+  border: selectedRobot.value.head.onSale ? '2px solid red' : '3px solid #aaa',
+}));
+
 // #region Part Selector Methods
 const selectNextHead = () => {
   selectedHeadIndex.value = getNextValidIndex(
@@ -175,7 +179,7 @@ const addToCart = () => {
 };
 </script>
 
-<style>
+<style scoped>
 .part {
   position: relative;
   width: 200px;

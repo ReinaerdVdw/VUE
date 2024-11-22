@@ -10,22 +10,22 @@
     </nav>
   </header>
   <main>
-    <!--    <RobotBuilder/>-->
-    <ProductSearch/>
+    <RobotBuilder/>
+    <!--    <ProductSearch/>-->
     <!--    <HomePage msg="Welcome to Your Vue.js App"/>-->
   </main>
 </template>
 
 <script>
-// import RobotBuilder from './build/RobotBuilder.vue';
-import ProductSearch from './search/ProductSearch.vue';
+import RobotBuilder from './build/RobotBuilder.vue';
+// import ProductSearch from './search/ProductSearch.vue';
 // import HomePage from './HomePage.vue';
 
 export default {
   name: 'App',
   components: {
-    // RobotBuilder,
-    ProductSearch,
+    RobotBuilder,
+    // ProductSearch,
     // HomePage,
   },
 };
@@ -33,6 +33,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
@@ -41,6 +42,10 @@ body {
   background: linear-gradient(to bottom, #555, #999);
   background-attachment: fixed;
 }
+
+</style>
+
+<style scoped>
 
 main {
   margin: 0 auto;
