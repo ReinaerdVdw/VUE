@@ -2,7 +2,7 @@
   <div class="content">
     <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     <div class="top-row">
-      <div class="top part" :class="{'sale-border':selectedRobot.head.onSale}">
+      <div class="top part">
         <div class="robot-name">
           {{ selectedRobot.head.title }}
           <span class="sale" v-if="selectedRobot.head.onSale">On Sale!</span>
@@ -89,6 +89,8 @@ const selectedRobot = computed(() => ({
   torso: availableParts.torsos[selectedTorsoIndex.value],
   base: availableParts.bases[selectedBaseIndex.value],
 }));
+
+const HeadBorderColor = computed(() => (selectedRobot.value.head.onSale ? 'red' : '#aaa'));
 
 // #region Part Selector Methods
 const selectNextHead = () => {
@@ -183,8 +185,8 @@ const addToCart = () => {
   border: 3px solid #aaa;
 }
 
-.sale-border {
-  border: 3px solid red;
+.top.part {
+  border: 3px solid v-bind(HeadBorderColor);
 }
 
 .part img {
