@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   env: {
     node: true,
+    'vue/setup-compler-macros': true,
   },
   extends: [
     'plugin:vue/vue3-essential',
