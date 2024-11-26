@@ -18,5 +18,10 @@ module.exports = {
     'operator-linebreak': 0,
     'double-quotes': 0,
     'comma-dangle': 0,
+    'click-events-have-key-events': 0,
+
+
   },
+  ignores: ["../../*.js", "../../*.vue"],
+
 };

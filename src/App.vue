@@ -16,19 +16,15 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import RobotBuilder from './build/RobotBuilder.vue';
+import { ref, provide } from 'vue';
 // import ProductSearch from './search/ProductSearch.vue';
 // import HomePage from './HomePage.vue';
 
-export default {
-  name: 'App',
-  components: {
-    RobotBuilder,
-    // ProductSearch,
-    // HomePage,
-  },
-};
+const userName = ref('John Doe');
+
+provide('userName', userName);
 
 </script>
 
