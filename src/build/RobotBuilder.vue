@@ -45,35 +45,18 @@
                     @partSelected="part => selectedRobot.base = part"/>
     </div>
   </div>
-  <div>
-    <h1>Cart</h1>
-    <table>
-      <thead>
-      <tr>
-        <th>Robot</th>
-        <th class="cost">Cost</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-for="(robot, index) in cart" :key="index">
-        <td>{{ robot.head.title }}</td>
-        <td>{{ toCurrency(robot.cost) }}</td>
-      </tr>
-      </tbody>
-    </table>
-
-  </div>
 </template>
 
 <script setup>
-import { toCurrency } from '@/shared/formatters';
 import { computed, ref, onMounted } from 'vue';
 import PartSelector from './PartSelector.vue';
 import parts from '../data/parts';
 import CollapsibleSection from '@/shared/CollapsibleSection.vue';
+import { useCartStore } from '@/stores/cartStore';
+
+const cartStore = useCartStore();
 
 const availableParts = parts;
-const cart = ref([]);
 
 onMounted(() => console.log('RobotBuilder mounted'));
 
@@ -95,7 +78,7 @@ const addToCart = () => {
     robot.torso.cost +
     robot.base.cost;
   // the code below this is the same, but creates a new one it is better.
-  cart.value.push({
+  cartStore.cart.push({
     ...robot,
     cost,
   });
@@ -106,7 +89,7 @@ const addToCart = () => {
   //     cost,
   //   },
   // ];
-  console.log(cart.value.length);
+  console.log(cardStore.cart.length);
 };
 </script>
 

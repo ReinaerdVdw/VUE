@@ -27,8 +27,8 @@
 </template>
 
 <script setup>
-import { toCurrency } from '../shared/formatters';
-import { useCartStore } from '../stores/cartStore';
+import { toCurrency } from '@/shared/formatters';
+import { useCartStore } from '@/stores/cartStore';
 
 const cartStore = useCartStore();
 </script>
